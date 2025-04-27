@@ -16,7 +16,7 @@ body{
     -moz-osx-font-smooting:grayscale;
     background-color: var(--black);
     color: var(--white);
-    height: 200vh;
+    height: 150vh;
     font-family: "Inter","sans-serif";
 }
 

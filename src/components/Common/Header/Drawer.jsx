@@ -1,7 +1,10 @@
 import { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+
 import { IconButton } from "@mui/material";
+import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 export default function AnchorTemporaryDrawer() {
 	const [open, setOpen] = useState(false);
@@ -9,22 +12,26 @@ export default function AnchorTemporaryDrawer() {
 	return (
 		<div>
 			<IconButton onClick={() => setOpen(true)}>
-				<MenuRoundedIcon className="link"/>
+				<MenuRoundedIcon className='link' />
 			</IconButton>
 			<Drawer anchor={"right"} open={open} onClose={() => setOpen(false)}>
 				<div className='drawer-div'>
-					<a href='/'>
+					<Link to='/'>
 						<p className='link'>Home</p>
-					</a>
-					<a href='/'>
+					</Link>
+					<Link to='/compare'>
 						<p className='link'>Compare</p>
-					</a>
-					<a href='/'>
+					</Link>
+					<Link to='/watchlist'>
 						<p className='link'>WatchList</p>
-					</a>
-					<a href='/'>
-						<p className='link'>Dashboard</p>
-					</a>
+					</Link>
+					<Link to='/dashboard'>
+						<Button
+							text={"Dashboard"}
+							outlined={false}
+							onClick={() => console.log("click")}
+						/>
+					</Link>
 				</div>
 			</Drawer>
 		</div>
