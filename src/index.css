@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
 	--white: #fff;
@@ -10,42 +10,45 @@
 	--red: #f94141;
 }
 
-body{
-    margin: 0;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smooting:grayscale;
-    background-color: var(--black);
-    color: var(--white);
-    height: 150vh;
-    font-family: "Inter","sans-serif";
+body {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smooting: grayscale;
+	background-color: var(--black);
+	color: var(--white);
+	height: 150vh;
+	font-family: "Inter", "sans-serif";
 }
 
-::selection{
-    background-color: var(--blue);
-    color: var(--white);
+::selection {
+	background-color: var(--blue);
+	color: var(--white);
 }
 
 /* For the entire scrollbar */
 ::-webkit-scrollbar {
-  width: 5px; /* Width for vertical scrollbar */
-  height: 8px; /* Height for horizontal scrollbar */
+	width: 5px; /* Width for vertical scrollbar */
+	height: 8px; /* Height for horizontal scrollbar */
 }
 
 /* Track (background) */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
+	background: #f1f1f1;
+	border-radius: 10px;
 }
 
 /* Handle (thumb) */
 ::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
+	background: #888;
+	border-radius: 10px;
 }
 
-a{
-  color: var(--white) !important;
-  text-decoration: none !important;
+a {
+	color: var(--white) !important;
+	text-decoration: none !important;
 }
 
-
+img {
+	-webkit-user-drag: none;
+	-moz-user-select: none;
+}
