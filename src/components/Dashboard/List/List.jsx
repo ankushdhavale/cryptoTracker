@@ -1,10 +1,11 @@
 import React from "react";
 import "./styles.css";
-import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 
-function Grid({ coin }) {
+const List = ({ item }) => {
 	return (
-		<div
+		<div>
+            <tr>
+            <div
 			className={`grid-container ${
 				coin.price_change_percentage_24h < 0 && "grid-container-red"
 			}`}
@@ -55,7 +56,9 @@ function Grid({ coin }) {
 				</p>
 			</div>
 		</div>
+            </tr>
+		</div>
 	);
-}
+};
 
-export default Grid;
+export default List;

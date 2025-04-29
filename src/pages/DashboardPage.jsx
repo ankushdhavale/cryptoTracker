@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Tabs from "../components/Dashboard/Tabs/Tabs";
 
 const DashboardPage = () => {
-	const [coin, setCoin] = useState([]);
+	const [coins, setCoins] = useState([]);
 
 	useEffect(() => {
 		axios
@@ -12,7 +12,7 @@ const DashboardPage = () => {
 			)
 			.then((response) => {
 				// console.log("Respone>>", response?.data);
-				setCoin(response?.data);
+				setCoins(response?.data);
 			})
 			.catch((error) => {
 				console.log("Error", error);
@@ -21,7 +21,7 @@ const DashboardPage = () => {
 	
 	return (
 		<div>
-			<Tabs coin={coin} />
+			<Tabs coins={coins} />
 		</div>
 	);
 };

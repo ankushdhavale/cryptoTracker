@@ -5,15 +5,16 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Grid from "../Grid/Grid";
-import "./styles.css"
+import "./styles.css";
+import List from "../List/List";
 
-export default function Tabs({ coin }) {
+export default function Tabs({ coins }) {
 	const [value, setValue] = React.useState("Grid");
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
-	console.log(coin);
+	console.log(coins);
 
 	const style = {
 		color: "var(--white)",
@@ -40,15 +41,19 @@ export default function Tabs({ coin }) {
 					<Tab label='List' value='List' sx={style} />
 				</TabList>
 				<TabPanel value='Grid'>
-					<div className="grid-flex">
-						{coin.map((coin, i) => {
-							return (
-                <Grid coin={coin} key={i}/>
-							);
+					<div className='grid-flex'>
+						{coins.map((coin, i) => {
+							return <Grid coin={coin} key={i} />;
 						})}
 					</div>
 				</TabPanel>
-				<TabPanel value='List'>List</TabPanel>
+				<TabPanel value='List'>
+				<div className=''>
+						{coins.map((item, i) => {
+							return <List item={item} key={i} />;
+						})}
+					</div>
+				</TabPanel>
 			</TabContext>
 		</ThemeProvider>
 	);
