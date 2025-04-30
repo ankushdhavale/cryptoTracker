@@ -48,7 +48,7 @@ export default function Tabs({ coins }) {
 					</div>
 				</TabPanel>
 				<TabPanel value='List'>
-				<div className=''>
+				<div className='list-table'>
 						{coins.map((item, i) => {
 							return <List item={item} key={i} />;
 						})}
