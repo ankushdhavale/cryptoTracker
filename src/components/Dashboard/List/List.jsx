@@ -2,16 +2,17 @@ import React from "react";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import Tooltip from "@mui/material/Tooltip";
 import "./styles.css";
+import { convertNumbers } from "../../../functions/convertNumbers";
 
 const List = ({ item }) => {
 	return (
 		<tr className='list-row'>
-			<Tooltip title='Coin Logo' placement="bottom-end">
+			<Tooltip title='Coin Logo' placement='bottom-end'>
 				<td className='td-image'>
 					<img src={item.image} className='coin-logo' />
 				</td>
 			</Tooltip>
-			<Tooltip title='Coin Info' placement="bottom-start">
+			<Tooltip title='Coin Info' placement='bottom-start'>
 				<td>
 					<div className='name-col'>
 						<p className='coin-symbol'>{item.symbol}</p>
@@ -19,7 +20,7 @@ const List = ({ item }) => {
 					</div>
 				</td>
 			</Tooltip>
-			<Tooltip title='Price Change in 24H' placement="bottom-end">
+			<Tooltip title='Price Change in 24H' placement='bottom-end'>
 				{item.price_change_percentage_24h > 0 ? (
 					<td className='chip-flex'>
 						<div className='price-chip'>
@@ -35,12 +36,12 @@ const List = ({ item }) => {
 							{item.price_change_percentage_24h.toFixed(2) + "%"}
 						</div>
 						<div className='icon-chip chip-red'>
-					 		<TrendingUpRoundedIcon />
+							<TrendingUpRoundedIcon />
 						</div>
 					</td>
 				)}
 			</Tooltip>
-			<Tooltip title='Coin Price' placement="bottom-end">
+			<Tooltip title='Coin Price' placement='bottom-end'>
 				<td className='coin-info'>
 					<h3
 						className='coin-price td-center-right'
@@ -55,17 +56,24 @@ const List = ({ item }) => {
 					</h3>
 				</td>
 			</Tooltip>
-			<Tooltip title='Total Volume' placement="bottom-end">
+			<Tooltip title='Total Volume' placement='bottom-end'>
 				<td>
 					<p className='total-volume td-align-right'>
 						{item.total_volume.toLocaleString()}
 					</p>
 				</td>
 			</Tooltip>
-			<Tooltip title='Market Cap' placement="bottom-end">
-				<td>
+			<Tooltip title='Market Cap' placement='bottom-end'>
+				<td className='desktop-td-mkt'>
 					<p className='total-volume td-align-right'>
 						${item.market_cap.toLocaleString()}
+					</p>
+				</td>
+			</Tooltip>
+			<Tooltip title='Market Cap' placement='bottom-end'>
+				<td className='mobile-td-mkt'>
+					<p className='total-volume td-align-right'>
+						${convertNumbers(item.market_cap)}
 					</p>
 				</td>
 			</Tooltip>
