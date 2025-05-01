@@ -9,6 +9,7 @@ function Grid({ coin }) {
 				coin.price_change_percentage_24h < 0 && "grid-container-red"
 			}`}
 		>
+			{coin<=0 && <div>hello</div>}
 			<div className='info-flex'>
 				<img src={coin.image} className='coin-logo' />
 				<div className='name-col'>
