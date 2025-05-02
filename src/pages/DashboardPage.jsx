@@ -3,10 +3,20 @@ import React, { useEffect, useState } from "react";
 import Tabs from "../components/Dashboard/Tabs/Tabs";
 import SearchBar from "../components/Dashboard/Search/SearchBar";
 import PaginationComponents from "../components/Dashboard/Peginations/Pagination";
+import Loader from "../components/Common/Loader/Loader";
 
 const DashboardPage = () => {
 	const [coins, setCoins] = useState([]);
+	const [paginatedCoins, setPaginatedCoins] = useState([]);
 	const [search, setSearch] = useState("");
+	const [page, setPage] = useState(1);
+	const [isLoading, setIsLoading] = useState(true);
+
+	const handlePageChange = (event, value) => {
+		setPage(value);
+		var previousIndex = (value - 1) * 10;
+		setPaginatedCoins(coins.slice(previousIndex, previousIndex + 10));
+	};
 
 	const onSearchChange = (e) => {
 		setSearch(e.target.value);
@@ -28,22 +38,36 @@ const DashboardPage = () => {
 			.then((response) => {
 				// console.log("Response>>", response?.data);
 				setCoins(response?.data);
+				setPaginatedCoins(response?.data.slice(0, 10));
+				setIsLoading(false);
 			})
 			.catch((error) => {
 				console.log("Error", error);
+				setIsLoading(true);
 			});
 	}, []);
 
 	return (
-		<div>
-			<SearchBar
-				search={search}
-				setSearch={setSearch}
-				onSearchChange={onSearchChange}
-			/>
-			<Tabs coins={filteredCoins} />
-			<PaginationComponents/>
-		</div>
+		<>
+			{isLoading ? (
+				<Loader />
+			) : (
+				<div>
+					<SearchBar
+						search={search}
+						setSearch={setSearch}
+						onSearchChange={onSearchChange}
+					/>
+					<Tabs coins={search ? filteredCoins : paginatedCoins} />
+					{!search && (
+						<PaginationComponents
+							page={page}
+							handlePageChange={handlePageChange}
+						/>
+					)}
+				</div>
+			)}
+		</>
 	);
 };
 

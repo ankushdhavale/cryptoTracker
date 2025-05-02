@@ -1,5 +1,8 @@
 .pagination-components{
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
     padding-bottom: 4rem;
+    gap: 2rem;
 }
