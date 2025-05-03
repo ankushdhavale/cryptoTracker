@@ -7,6 +7,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import Grid from "../Grid/Grid";
 import "./styles.css";
 import List from "../List/List";
+import { Link } from "react-router-dom";
 
 export default function Tabs({ coins }) {
 	const [value, setValue] = React.useState("Grid");
@@ -43,14 +44,14 @@ export default function Tabs({ coins }) {
 				<TabPanel value='Grid'>
 					<div className='grid-flex'>
 						{coins.map((coin, i) => {
-							return <Grid coin={coin} key={i} />;
+							return <Link to={`/coin/${coin.id}`}><Grid coin={coin} key={i} /></Link>;
 						})}
 					</div>
 				</TabPanel>
 				<TabPanel value='List'>
 				<div className='list-table'>
-						{coins.map((item, i) => {
-							return <List item={item} key={i} />;
+						{coins.map((coin, i) => {
+							return <Link to={`/coin/${coin.id}`}><List coin={coin} key={i} /></Link>;
 						})}
 					</div>
 				</TabPanel>

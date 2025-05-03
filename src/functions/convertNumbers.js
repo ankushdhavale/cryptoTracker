@@ -1,6 +1,6 @@
 export const convertNumbers = (number) => {
-	const numberWithCommas = number.toLocaleString();
-	var arr = numberWithCommas.split(",");
+	const numberWithCommas = number?.toLocaleString();
+	var arr = numberWithCommas?.split(",");
 	if (arr.length == 5) {
 		return arr[0] + "." + arr[1].slice(0, 2) + "T";
 	} else if (arr.length == 4) {
@@ -10,6 +10,6 @@ export const convertNumbers = (number) => {
 	} else if (arr.length == 2) {
 		return arr[0] + "." + arr[1].slice(0, 2) + "K";
 	} else {
-		return number.toLocaleString();
+		return number?.toLocaleString();
 	}
 };

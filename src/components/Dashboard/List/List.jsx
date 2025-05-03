@@ -4,27 +4,27 @@ import Tooltip from "@mui/material/Tooltip";
 import "./styles.css";
 import { convertNumbers } from "../../../functions/convertNumbers";
 
-const List = ({ item }) => {
+const List = ({ coin }) => {
 	return (
 		<tr className='list-row'>
 			<Tooltip title='Coin Logo' placement='bottom-end'>
 				<td className='td-image'>
-					<img src={item.image} className='coin-logo' />
+					<img src={coin?.image} className='coin-logo' />
 				</td>
 			</Tooltip>
 			<Tooltip title='Coin Info' placement='bottom-start'>
 				<td>
 					<div className='name-col'>
-						<p className='coin-symbol'>{item.symbol}</p>
-						<p className='coin-name'>{item.name.slice(1, 17)}</p>
+						<p className='coin-symbol'>{coin?.symbol}</p>
+						<p className='coin-name'>{coin?.name?.slice(1, 17)}</p>
 					</div>
 				</td>
 			</Tooltip>
 			<Tooltip title='Price Change in 24H' placement='bottom-end'>
-				{item.price_change_percentage_24h > 0 ? (
+				{coin?.price_change_percentage_24h > 0 ? (
 					<td className='chip-flex'>
 						<div className='price-chip'>
-							{item.price_change_percentage_24h.toFixed(2) + "%"}
+							{coin.price_change_percentage_24h?.toFixed(2) + "%"}
 						</div>
 						<div className='icon-chip'>
 							<TrendingUpRoundedIcon />
@@ -33,7 +33,7 @@ const List = ({ item }) => {
 				) : (
 					<td className='chip-flex'>
 						<div className='price-chip price-chip-red'>
-							{item.price_change_percentage_24h.toFixed(2) + "%"}
+							{coin?.price_change_percentage_24h?.toFixed(2) + "%"}
 						</div>
 						<div className='icon-chip chip-red'>
 							<TrendingUpRoundedIcon />
@@ -47,33 +47,33 @@ const List = ({ item }) => {
 						className='coin-price td-center-right'
 						style={{
 							color:
-								item.price_change_percentage_24h > 0
+							coin?.price_change_percentage_24h > 0
 									? "var(--green)"
 									: "var(--red)",
 						}}
 					>
-						${item.current_price.toLocaleString()}
+						${coin?.current_price?.toLocaleString()}
 					</h3>
 				</td>
 			</Tooltip>
 			<Tooltip title='Total Volume' placement='bottom-end'>
 				<td>
 					<p className='total-volume td-align-right'>
-						{item.total_volume.toLocaleString()}
+						{coin?.total_volume?.toLocaleString()}
 					</p>
 				</td>
 			</Tooltip>
 			<Tooltip title='Market Cap' placement='bottom-end'>
 				<td className='desktop-td-mkt'>
 					<p className='total-volume td-align-right'>
-						${item.market_cap.toLocaleString()}
+						${coin?.market_cap?.toLocaleString()}
 					</p>
 				</td>
 			</Tooltip>
 			<Tooltip title='Market Cap' placement='bottom-end'>
 				<td className='mobile-td-mkt'>
 					<p className='total-volume td-align-right'>
-						${convertNumbers(item.market_cap)}
+						${convertNumbers(coin?.market_cap)}
 					</p>
 				</td>
 			</Tooltip>

@@ -2,8 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Tabs from "../components/Dashboard/Tabs/Tabs";
 import SearchBar from "../components/Dashboard/Search/SearchBar";
-import PaginationComponents from "../components/Dashboard/Peginations/Pagination";
+import PaginationComponents from "../components/Dashboard/Paginations/Pagination";
 import Loader from "../components/Common/Loader/Loader";
+import BackToTop from "../components/Common/BackToTop/BackToTop";
 
 const DashboardPage = () => {
 	const [coins, setCoins] = useState([]);
@@ -52,7 +53,8 @@ const DashboardPage = () => {
 			{isLoading ? (
 				<Loader />
 			) : (
-				<div>
+					<div>
+						<BackToTop/>
 					<SearchBar
 						search={search}
 						setSearch={setSearch}
