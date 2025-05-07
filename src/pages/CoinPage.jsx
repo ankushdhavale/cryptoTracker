@@ -17,6 +17,8 @@ const CoinPage = () => {
 	const [coinData, setCoinData] = useState([]);
 	const [days, setDays] = useState(30);
 	const [chartData, setChartData] = useState({});
+	const [priceType, setPriceType] = useState("prices");
+
 	const { coinId } = useParams();
 
 	useEffect(() => {
@@ -29,7 +31,7 @@ const CoinPage = () => {
 		const data = await getCoinData(coinId);
 		if (data) {
 			coinObject(setCoinData, data);
-			const prices = await getCoinPrices(coinId, days);
+			const prices = await getCoinPrices(coinId, days,priceType);
 			if (prices?.length > 0) {
 				settingChartData(setChartData, prices);
 				setIsLoading(false);
@@ -37,16 +39,28 @@ const CoinPage = () => {
 		}
 	}
 
-
 	const handleDaysChange = async (event) => {
 		setIsLoading(true);
 		setDays(event.target.value);
-		const prices = await getCoinPrices(coinId, event.target.value);
-			if (prices?.length > 0) {
-				settingChartData(setChartData, prices);
-				setIsLoading(false);
-			}
-	}
+		const prices = await getCoinPrices(coinId, event.target.value,priceType);
+		if (prices?.length > 0) {
+			settingChartData(setChartData, prices);
+			setIsLoading(false);
+		}
+	};
+
+	const handlePriceTypeChange = async (event, newAlignment) => {
+		setPriceType(newAlignment);
+		console.log(newAlignment);
+		
+		setIsLoading(true);
+		setDays(event.target.value);
+		const prices = await getCoinPrices(coinId, days, priceType);
+		if (prices?.length > 0) {
+			settingChartData(setChartData, prices);
+			setIsLoading(false);
+		}
+	};
 
 	return (
 		<div>
@@ -58,8 +72,11 @@ const CoinPage = () => {
 						<List coin={coinData} />
 					</div>
 					<div className='grey-wrapper'>
-							<SelectDays days={days} handleDaysChange={handleDaysChange} />
-							<TogglePriceType/>
+						<SelectDays days={days} handleDaysChange={handleDaysChange} />
+						<TogglePriceType
+							priceType={priceType}
+							handlePriceTypeChange={handlePriceTypeChange}
+						/>
 						<LineChart chartData={chartData} />
 					</div>
 					<CoinInfo heading={coinData.name} desc={coinData.desc} />
