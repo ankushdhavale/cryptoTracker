@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage"
 import DashboardPage from "./pages/DashboardPage"
 import Header from "./components/Common/Header/Header"
 import CoinPage from "./pages/CoinPage"
+import ComparePage from "./pages/ComparePage"
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
           <Route path="/" element={<HomePage/> } />
           <Route path="/dashboard" element={<DashboardPage/> } />
           <Route path="/coin/:coinId" element={<CoinPage/> } />
-          <Route path="/" element={<HomePage/> } />
+          <Route path="/compare" element={<ComparePage/> } />
         </Routes>
       </BrowserRouter>
     </div>
