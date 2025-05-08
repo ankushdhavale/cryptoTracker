@@ -1,6 +1,12 @@
-import React from "react";
+import { MenuItem, Select } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { get100Coins } from "../../../functions/get100Coins";
+import "./styles.css";
 
-const SelectCoins = () => {
+const SelectCoins = ({ handleDaysChange }) => {
+	const [crypto1, setCrypto1] = useState("bitcoin");
+	const [crypto2, setCrypto2] = useState("ethereum");
+	const [allCoins, setAllCoins] = useState([]);
 	const styles = {
 		height: "2.5rem",
 		color: "var(--white)",
@@ -16,20 +22,52 @@ const SelectCoins = () => {
 			},
 		},
 	};
+
+	const handelCoinChange = (event, isCoin2) => {
+		if (isCoin2) {
+			setCrypto2(event.target.value);	
+			console.log("crypto 2",event.target.value);
+			
+		} else {
+			setCrypto1(event.target.value);
+			console.log("crypto 1",event.target.value);
+		}
+	};
+
+	useEffect(() => {
+		getData();
+	}, []);
+
+	const getData = async () => {
+		const myData = await get100Coins();
+		setAllCoins(myData);
+	};
+	console.log(allCoins);
+
 	return (
-		<div>
+		<div className="coin-flex">
+			<p>Crypto 1</p>
 			<Select
 				sx={styles}
-				value={days}
-				label='Days'
-				onChange={handleDaysChange}
+				value={crypto1}
+				label='Crypto 1'
+				onChange={(event)=>handelCoinChange(event,false)}
 			>
-				<MenuItem value={7}>7 Days</MenuItem>
-				<MenuItem value={30}>30 Days</MenuItem>
-				<MenuItem value={60}>60 Days</MenuItem>
-				<MenuItem value={90}>90 Days</MenuItem>
-				<MenuItem value={120}>120 Days</MenuItem>
-				<MenuItem value={365}>1 Year</MenuItem>
+				{allCoins.map((coin) => (
+					<MenuItem value={coin.id}>{coin.name}</MenuItem>
+				))}
+			</Select>
+
+			<p>Crypto 2</p>
+			<Select
+				sx={styles}
+				value={crypto2}
+				label='Crypto 2'
+				onChange={(event)=>handelCoinChange(event,true)}
+			>
+				{allCoins.map((coin) => (
+					<MenuItem value={coin.id}>{coin.name}</MenuItem>
+				))}
 			</Select>
 		</div>
 	);
