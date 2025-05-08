@@ -55,3 +55,34 @@
         display: block;
     }
 }
+
+@media only screen and (max-width: 800px) {
+	.list-row {
+		margin: 0rem;
+		padding: 0rem;
+		gap:0.1rem;
+	}
+    .td-image img{
+		margin-right: 0rem;
+	}
+	.coin-logo{
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+	.coin-symbol{
+		font-size: 0.8rem;
+	}
+	.coin-name{
+		font-size: 0.8rem;
+	}
+	.price-chip{
+		font-size: 0.7rem;
+	}
+	.icon-chip{
+		width:1.5rem;
+		height: 1.5rem;
+	}
+	.coin-info h3 {
+		font-size: 1rem;
+	}
+}
