@@ -98,4 +98,7 @@
 	.coin-price{
 		font-size: 0.8rem;
 	}
+	.icon-chip{
+		display: none;
+	}
 }
