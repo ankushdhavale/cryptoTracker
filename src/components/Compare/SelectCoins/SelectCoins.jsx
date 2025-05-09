@@ -3,9 +3,8 @@ import React, { useEffect, useState } from "react";
 import { get100Coins } from "../../../functions/get100Coins";
 import "./styles.css";
 
-const SelectCoins = ({ handleDaysChange }) => {
-	const [crypto1, setCrypto1] = useState("bitcoin");
-	const [crypto2, setCrypto2] = useState("ethereum");
+const SelectCoins = ({ crypto1, setCrypto1,crypto2, setCrypto2}) => {
+	
 	const [allCoins, setAllCoins] = useState([]);
 	const styles = {
 		height: "2.5rem",

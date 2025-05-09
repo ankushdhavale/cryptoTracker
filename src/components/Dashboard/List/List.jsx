@@ -65,14 +65,14 @@ const List = ({ coin }) => {
 			</Tooltip>
 			<Tooltip title='Market Cap' placement='bottom-end'>
 				<td className='desktop-td-mkt'>
-					<p className='total-volume td-align-right'>
+					<p className='total-cap td-align-right'>
 						${coin?.market_cap?.toLocaleString()}
 					</p>
 				</td>
 			</Tooltip>
 			<Tooltip title='Market Cap' placement='bottom-end'>
 				<td className='mobile-td-mkt'>
-					<p className='total-volume td-align-right'>
+					<p className='total-cap td-align-right'>
 						${convertNumbers(coin?.market_cap)}
 					</p>
 				</td>
