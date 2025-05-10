@@ -11,7 +11,7 @@ export const get100Coins = () => {
 			})
 			.catch((error) => {
 				console.log("Error", error);
-				setIsLoading(true);
+				// setIsLoading(true);
             });
     return myCoins;
 }

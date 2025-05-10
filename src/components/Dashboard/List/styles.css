@@ -58,9 +58,10 @@
 
 @media only screen and (max-width: 800px) {
 	.list-row {
-		margin: auto;
+		margin: 0rem;
 		padding: 0rem;
 		gap:0rem;
+		overflow-x: hidden;
 	}
 
 	.coin-logo{
@@ -71,9 +72,13 @@
 	}
 	.coin-symbol{
 		font-size: 0.8rem;
+		margin: 0rem;
+		padding: 0rem;
 	}
 	.coin-name{
 		font-size: 0.8rem;
+		margin: 0rem;
+		padding: 0rem;
 	}
 	.price-chip{
 		font-size: 0.7rem;
@@ -85,6 +90,8 @@
 	.icon-chip{
 		width:1.5rem;
 		height: 1.5rem;
+		margin: 0rem;
+		padding: 0rem;
 	}
 	.coin-info h3 {
 		font-size: 1rem;
@@ -94,9 +101,13 @@
 	}
 	.total-cap{
 		font-size: 0.8rem;
+		margin: 0rem;
+		padding: 0rem;
 	}
 	.coin-price{
 		font-size: 0.8rem;
+		margin: 0rem;
+		padding: 0rem;
 	}
 	.icon-chip{
 		display: none;

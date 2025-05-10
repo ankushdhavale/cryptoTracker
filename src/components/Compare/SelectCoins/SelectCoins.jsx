@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { get100Coins } from "../../../functions/get100Coins";
 import "./styles.css";
 
-const SelectCoins = ({ crypto1, setCrypto1,crypto2, setCrypto2}) => {
+const SelectCoins = ({ crypto1, setCrypto1,crypto2, setCrypto2,handelCoinChange}) => {
 	
 	const [allCoins, setAllCoins] = useState([]);
 	const styles = {
@@ -22,16 +22,16 @@ const SelectCoins = ({ crypto1, setCrypto1,crypto2, setCrypto2}) => {
 		},
 	};
 
-	const handelCoinChange = (event, isCoin2) => {
-		if (isCoin2) {
-			setCrypto2(event.target.value);	
-			console.log("crypto 2",event.target.value);
+	// const handelCoinChange = (event, isCoin2) => {
+	// 	if (isCoin2) {
+	// 		setCrypto2(event.target.value);	
+	// 		console.log("crypto 2",event.target.value);
 			
-		} else {
-			setCrypto1(event.target.value);
-			console.log("crypto 1",event.target.value);
-		}
-	};
+	// 	} else {
+	// 		setCrypto1(event.target.value);
+	// 		console.log("crypto 1",event.target.value);
+	// 	}
+	// };
 
 	useEffect(() => {
 		getData();
@@ -52,8 +52,8 @@ const SelectCoins = ({ crypto1, setCrypto1,crypto2, setCrypto2}) => {
 				label='Crypto 1'
 				onChange={(event)=>handelCoinChange(event,false)}
 			>
-				{allCoins.map((coin) => (
-					<MenuItem value={coin.id}>{coin.name}</MenuItem>
+				{allCoins.filter((item)=>item?.id != crypto2).map((coin) => (
+					<MenuItem key={coin.id} value={coin.id}>{coin.name}</MenuItem>
 				))}
 			</Select>
 
@@ -64,8 +64,8 @@ const SelectCoins = ({ crypto1, setCrypto1,crypto2, setCrypto2}) => {
 				label='Crypto 2'
 				onChange={(event)=>handelCoinChange(event,true)}
 			>
-				{allCoins.map((coin) => (
-					<MenuItem value={coin.id}>{coin.name}</MenuItem>
+				{allCoins.filter((item)=>item?.id != crypto1).map((coin) => (
+					<MenuItem key={coin.id} value={coin.id}>{coin.name}</MenuItem>
 				))}
 			</Select>
 		</div>
