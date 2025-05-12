@@ -3,8 +3,13 @@ import React, { useEffect, useState } from "react";
 import { get100Coins } from "../../../functions/get100Coins";
 import "./styles.css";
 
-const SelectCoins = ({ crypto1, setCrypto1,crypto2, setCrypto2,handelCoinChange}) => {
-	
+const SelectCoins = ({
+	crypto1,
+	setCrypto1,
+	crypto2,
+	setCrypto2,
+	handelCoinChange,
+}) => {
 	const [allCoins, setAllCoins] = useState([]);
 	const styles = {
 		height: "2.5rem",
@@ -24,9 +29,9 @@ const SelectCoins = ({ crypto1, setCrypto1,crypto2, setCrypto2,handelCoinChange}
 
 	// const handelCoinChange = (event, isCoin2) => {
 	// 	if (isCoin2) {
-	// 		setCrypto2(event.target.value);	
+	// 		setCrypto2(event.target.value);
 	// 		console.log("crypto 2",event.target.value);
-			
+
 	// 	} else {
 	// 		setCrypto1(event.target.value);
 	// 		console.log("crypto 1",event.target.value);
@@ -44,29 +49,35 @@ const SelectCoins = ({ crypto1, setCrypto1,crypto2, setCrypto2,handelCoinChange}
 	console.log(allCoins);
 
 	return (
-		<div className="coin-flex">
+		<div className='coin-flex'>
 			<p>Crypto 1</p>
 			<Select
 				sx={styles}
 				value={crypto1}
-				label='Crypto 1'
-				onChange={(event)=>handelCoinChange(event,false)}
+				label='Crypto1'
+				onChange={(event) => handelCoinChange(event, false)}
 			>
-				{allCoins.filter((item)=>item?.id != crypto2).map((coin) => (
-					<MenuItem key={coin.id} value={coin.id}>{coin.name}</MenuItem>
-				))}
+				{allCoins
+					?.map((coin) => (
+						<MenuItem key={coin.id} value={coin.id}>
+							{coin.name}
+						</MenuItem>
+					))}
 			</Select>
 
 			<p>Crypto 2</p>
 			<Select
 				sx={styles}
 				value={crypto2}
-				label='Crypto 2'
-				onChange={(event)=>handelCoinChange(event,true)}
+				label='Crypto2'
+				onChange={(event) => handelCoinChange(event, true)}
 			>
-				{allCoins.filter((item)=>item?.id != crypto1).map((coin) => (
-					<MenuItem key={coin.id} value={coin.id}>{coin.name}</MenuItem>
-				))}
+				{allCoins
+					?.map((coin) => (
+						<MenuItem key={coin.id} value={coin.id}>
+							{coin.name}
+						</MenuItem>
+					))}
 			</Select>
 		</div>
 	);

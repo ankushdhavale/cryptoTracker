@@ -3,7 +3,7 @@ import { useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import "./styles.css"
-export default function SelectDays({days, handleDaysChange}) {
+export default function SelectDays({days, handelDaysChange}) {
 	// const [days, setDays] = useState(30);
 
     // const handleChange = (event) => {
@@ -33,7 +33,7 @@ export default function SelectDays({days, handleDaysChange}) {
 				id='demo-simple-select'
 				value={days}
 				label='Days'
-				onChange={handleDaysChange}
+				onChange={handelDaysChange}
 			>
 				<MenuItem value={7}>7 Days</MenuItem>
 				<MenuItem value={30}>30 Days</MenuItem>
