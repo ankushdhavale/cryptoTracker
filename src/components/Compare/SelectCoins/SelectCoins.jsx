@@ -50,35 +50,36 @@ const SelectCoins = ({
 
 	return (
 		<div className='coin-flex'>
-			<p>Crypto 1</p>
-			<Select
-				sx={styles}
-				value={crypto1}
-				label='Crypto1'
-				onChange={(event) => handelCoinChange(event, false)}
-			>
-				{allCoins
-					?.map((coin) => (
+			<div className="coin-flex-select-1">
+				<p>Crypto 1</p>
+				<Select
+					sx={styles}
+					value={crypto1}
+					label='Crypto1'
+					onChange={(event) => handelCoinChange(event, false)}
+				>
+					{allCoins?.map((coin) => (
 						<MenuItem key={coin.id} value={coin.id}>
 							{coin.name}
 						</MenuItem>
 					))}
-			</Select>
-
-			<p>Crypto 2</p>
-			<Select
-				sx={styles}
-				value={crypto2}
-				label='Crypto2'
-				onChange={(event) => handelCoinChange(event, true)}
-			>
-				{allCoins
-					?.map((coin) => (
+				</Select>
+			</div>
+			<div className="coin-flex-select-2">
+				<p>Crypto 2</p>
+				<Select
+					sx={styles}
+					value={crypto2}
+					label='Crypto2'
+					onChange={(event) => handelCoinChange(event, true)}
+				>
+					{allCoins?.map((coin) => (
 						<MenuItem key={coin.id} value={coin.id}>
 							{coin.name}
 						</MenuItem>
 					))}
-			</Select>
+				</Select>
+			</div>
 		</div>
 	);
 };

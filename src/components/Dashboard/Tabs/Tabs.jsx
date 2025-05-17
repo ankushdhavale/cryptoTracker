@@ -44,14 +44,14 @@ export default function Tabs({ coins }) {
 				<TabPanel value='Grid'>
 					<div className='grid-flex'>
 						{coins.map((coin, i) => {
-							return <Link to={`/coin/${coin.id}`}><Grid coin={coin} key={i} /></Link>;
+							return <Grid coin={coin} key={i} />
 						})}
 					</div>
 				</TabPanel>
 				<TabPanel value='List'>
 				<div className='list-table'>
 						{coins.map((coin, i) => {
-							return <Link to={`/coin/${coin.id}`}><List coin={coin} key={i} /></Link>;
+							return <Link to={`/coin/${coin.id}`} key={i}><List coin={coin} key={i} /></Link>;
 						})}
 					</div>
 				</TabPanel>
