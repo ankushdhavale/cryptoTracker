@@ -64,52 +64,45 @@
 		overflow-x: hidden;
 	}
 
-	.coin-logo{
-		width: 2.5rem;
-		height: 2.5rem;
+	.logo-res{
+		width: 2rem;
+		height: 2rem;
 		margin: 0rem;
-		padding: 0rem;
 	}
-	.coin-symbol{
-		font-size: 0.8rem;
+
+	.td-img-res{
+		width: 0rem;
 		margin: 0rem;
-		padding: 0rem;
+	}
+	.coin-symbol-res{
+		font-size: 0.8rem;
 	}
 	.coin-name{
 		font-size: 0.8rem;
 		margin: 0rem;
 		padding: 0rem;
 	}
-	.price-chip{
+
+	.price-chip-res{
 		font-size: 0.7rem;
 		padding: 0.3rem 0.5rem;
 		border-radius: 0.8rem;
 		margin: 0rem;
 		gap: 0rem;
 	}
-	.icon-chip{
-		width:1.5rem;
-		height: 1.5rem;
-		margin: 0rem;
-		padding: 0rem;
-	}
-	.coin-info h3 {
-		font-size: 1rem;
-	}
-	.total-volume{
+
+	.icon-chip-res{
 		display: none;
+		width: 0%;
 	}
-	.total-cap{
-		font-size: 0.8rem;
+	.chip-flex-res{
 		margin: 0rem;
-		padding: 0rem;
 	}
-	.coin-price{
-		font-size: 0.8rem;
-		margin: 0rem;
-		padding: 0rem;
-	}
-	.icon-chip{
+	.total-volume-res{
 		display: none;
+		margin: 0rem;
+	}
+	.coin-info-res{
+		margin: 0rem;
 	}
 }
