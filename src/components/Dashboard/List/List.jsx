@@ -1,4 +1,5 @@
 import React from "react";
+import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import Tooltip from "@mui/material/Tooltip";
 import "./styles.css";
@@ -65,7 +66,7 @@ const List = ({ coin }) => {
 			</Tooltip>
 			<Tooltip title='Market Cap' placement='bottom-end'>
 				<td className='desktop-td-mkt market-cap-res'>
-					<p className='total-cap td-align-right'>
+					<p className='total-cap td-align-right market-cap-res'>
 						${coin?.market_cap?.toLocaleString()}
 					</p>
 				</td>
@@ -77,6 +78,19 @@ const List = ({ coin }) => {
 					</p>
 				</td>
 			</Tooltip>
+			{coin.price_change_percentage_24h > 0 ? (
+					<div className='info-flex-wishList-icon'>
+						<button>
+							<StarBorderRoundedIcon />
+						</button>
+					</div>
+				) : (
+					<div className='info-flex-wishList-icon-red'>
+						<button>
+							<StarBorderRoundedIcon />
+						</button>
+					</div>
+				)}
 		</tr>
 	);
 };

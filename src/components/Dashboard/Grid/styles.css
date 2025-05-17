@@ -146,3 +146,23 @@
     font-size: 1rem;
     font-weight: 500;
 }
+
+.info-flex-wishList-icon-red{
+    border: 2px solid var(--red);
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    font-size: 1.1rem;
+    color: var(--red);
+    margin-left: auto;
+}
+
+.info-flex-wishList-icon-red button{
+    text-decoration: none;
+    color: var(--red);
+    border: 0;
+    background-color: transparent;
+}

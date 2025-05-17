@@ -58,10 +58,11 @@
 
 @media only screen and (max-width: 800px) {
 	.list-row {
-		margin: 0rem;
-		padding: 0rem;
-		gap:0rem;
+		margin: 1.4rem 0rem;
+		padding: 1.4rem 0%;
+		gap:0.5rem;
 		overflow-x: hidden;
+		align-items: center;
 	}
 
 	.logo-res{
@@ -75,10 +76,10 @@
 		margin: 0rem;
 	}
 	.coin-symbol-res{
-		font-size: 0.8rem;
+		font-size: 0.7rem;
 	}
 	.coin-name{
-		font-size: 0.8rem;
+		font-size: 0.7rem;
 		margin: 0rem;
 		padding: 0rem;
 	}
@@ -104,5 +105,12 @@
 	}
 	.coin-info-res{
 		margin: 0rem;
+	}
+	.total-cap-res{
+		font-size:0.7rem;
+		color: var(--grey);
+	}
+	.coin-price-res{
+		font-size: 0.7rem;
 	}
 }

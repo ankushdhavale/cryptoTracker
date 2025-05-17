@@ -1,31 +1,40 @@
 import React, { useContext } from "react";
 import "./styles.css";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
-import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
+import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import WishListContext from "../../../context/WishListContext";
 
 function Grid({ coin }) {
-
 	const { wishList } = useContext(WishListContext);
-	console.log('hello',wishList);
+	console.log("hello", wishList);
 	return (
 		<div
 			className={`grid-container ${
 				coin.price_change_percentage_24h < 0 && "grid-container-red"
 			}`}
 		>
-			{coin<=0 && <div>hello</div>}
+			{coin <= 0 && <div>hello</div>}
 			<div className='info-flex'>
 				<img src={coin.image} className='coin-logo' />
 				<div className='name-col'>
 					<p className='coin-symbol'>{coin.symbol}</p>
 					<p className='coin-name'>{coin.name.slice(1, 17)}</p>
 				</div>
-				<div className="info-flex-wishList-icon">
-					<button><StarBorderRoundedIcon/></button>
-				</div>
+				{coin.price_change_percentage_24h > 0 ? (
+					<div className='info-flex-wishList-icon'>
+						<button>
+							<StarBorderRoundedIcon />
+						</button>
+					</div>
+				) : (
+					<div className='info-flex-wishList-icon-red'>
+						<button>
+							<StarBorderRoundedIcon />
+						</button>
+					</div>
+				)}
 			</div>
-		
+
 			{coin.price_change_percentage_24h > 0 ? (
 				<div className='chip-flex'>
 					<div className='price-chip'>
