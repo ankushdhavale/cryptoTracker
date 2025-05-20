@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import Tooltip from "@mui/material/Tooltip";
 import "./styles.css";
 import { convertNumbers } from "../../../functions/convertNumbers";
+import { NavLink } from "react-router-dom";
+import WishListContext from "../../../context/WishListContext";
 
 const List = ({ coin }) => {
+	const { handelWishlist } = useContext(WishListContext);
 	return (
 		<tr className='list-row'>
 			<Tooltip title='Coin Logo' placement='bottom-end'>
@@ -80,15 +83,15 @@ const List = ({ coin }) => {
 			</Tooltip>
 			{coin.price_change_percentage_24h > 0 ? (
 					<div className='info-flex-wishList-icon'>
-						<button>
-							<StarBorderRoundedIcon />
-						</button>
+							<button onClick={()=>handelWishlist(coin)}>
+								<StarBorderRoundedIcon />
+							</button>
 					</div>
 				) : (
 					<div className='info-flex-wishList-icon-red'>
-						<button>
-							<StarBorderRoundedIcon />
-						</button>
+							<button onClick={()=>handelWishlist(coin)}>
+								<StarBorderRoundedIcon />
+							</button>
 					</div>
 				)}
 		</tr>

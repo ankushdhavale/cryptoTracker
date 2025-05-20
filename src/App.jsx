@@ -5,6 +5,7 @@ import Header from "./components/Common/Header/Header";
 import CoinPage from "./pages/CoinPage";
 import ComparePage from "./pages/ComparePage";
 import { WishListContextProvider } from "./context/WishListContext";
+import WishListPage from "./pages/WishListPage";
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 						<Route path='/dashboard' element={<DashboardPage />} />
 						<Route path='/coin/:coinId' element={<CoinPage />} />
 						<Route path='/compare' element={<ComparePage />} />
+						<Route path='/wishlist' element={<WishListPage />} />
 					</Routes>
 				</WishListContextProvider>
 			</BrowserRouter>

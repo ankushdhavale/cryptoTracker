@@ -17,7 +17,7 @@ const Header = () => {
 				<Link to='/compare'>
 					<p className='link'>Compare</p>
 				</Link>
-				<Link to='/watchlist'>
+				<Link to='/wishlist'>
 					<p className='link'>WatchList</p>
 				</Link>
 				<Link to='/dashboard'>

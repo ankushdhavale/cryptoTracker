@@ -142,7 +142,7 @@ const ComparePage = () => {
 				<Loader />
 			) : (
 				<>
-					<div className='compare-flex '>
+					<div className='compare-flex grey-wrapper'>
 						<SelectCoins
 							crypto1={crypto1}
 							crypto2={crypto2}

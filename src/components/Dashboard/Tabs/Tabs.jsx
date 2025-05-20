@@ -15,7 +15,6 @@ export default function Tabs({ coins }) {
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
-	console.log(coins);
 
 	const style = {
 		color: "var(--white)",
@@ -43,14 +42,14 @@ export default function Tabs({ coins }) {
 				</TabList>
 				<TabPanel value='Grid'>
 					<div className='grid-flex'>
-						{coins.map((coin, i) => {
+						{coins?.map((coin, i) => {
 							return <Grid coin={coin} key={i} />
 						})}
 					</div>
 				</TabPanel>
 				<TabPanel value='List'>
 				<div className='list-table'>
-						{coins.map((coin, i) => {
+						{coins?.map((coin, i) => {
 							return <Link to={`/coin/${coin.id}`} key={i}><List coin={coin} key={i} /></Link>;
 						})}
 					</div>
