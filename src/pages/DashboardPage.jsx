@@ -6,6 +6,8 @@ import PaginationComponents from "../components/Dashboard/Paginations/Pagination
 import Loader from "../components/Common/Loader/Loader";
 import BackToTop from "../components/Common/BackToTop/BackToTop";
 import { get100Coins } from "../functions/get100Coins";
+import Button from "../components/Common/Button/Button";
+import { NavLink } from "react-router-dom";
 
 const DashboardPage = () => {
 	const [coins, setCoins] = useState([]);
@@ -45,6 +47,11 @@ const DashboardPage = () => {
 		}
 	};
 
+	const handelBtn = () => {
+		setSearch("");
+	}
+	console.log("length",filteredCoins.length);
+	
 	return (
 		<>
 			{isLoading ? (
@@ -64,6 +71,12 @@ const DashboardPage = () => {
 							handlePageChange={handlePageChange}
 						/>
 					)}
+						{filteredCoins.length == 0 ? <div className="data-not-found">
+							<p>Sorry, Couldn't find the coin you're looking for 😞</p>
+							<NavLink onClick={handelBtn}>
+								<Button text={"Clear Search"} />
+							</NavLink>
+						</div> : ""}
 				</div>
 			)}
 		</>

@@ -72,6 +72,20 @@ img {
 	gap: 0.7rem;
 }
 
+.data-not-found{
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	justify-content: center;
+	align-items: center;
+}
+
+.data-not-found>p{
+	text-align: center;
+	font-size: 2.5rem;
+}
+
+
 @media only screen and (max-width:800px){
     .compare-flex{
 		display: flex;
@@ -82,5 +96,9 @@ img {
 	}
 	.grey-wrapper{
 		display: none;
+	}
+	.data-not-found>p{
+		text-align: center;
+		font-size: 1.5rem;
 	}
 }
