@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = "build"  # or "dist" for Vue or other frameworks
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
