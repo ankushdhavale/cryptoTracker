@@ -1,15 +1,19 @@
-import React, { useContext } from "react";
+import { useState } from "react";
 import "./styles.css";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
-import WishListContext from "../../../context/WishListContext";
+import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
+import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
 
 function Grid({ coin }) {
-	const { wishList } = useContext(WishListContext);
-	const { handelWishlist } = useContext(WishListContext);
+	const watchlist = JSON.parse(localStorage.getItem("watchlist"));
+	const [isCoinAdded, setIsCoinAdded] = useState(watchlist?.includes(coin.id));
+	console.log("is coinAdded",isCoinAdded);
+	
 
 	console.log("hello1", coin);
 	return (
+		<a href={`/coin/${coin.id}`}>
 		<div
 			className={`grid-container ${
 				coin?.price_change_percentage_24h < 0 && "grid-container-red"
@@ -24,15 +28,33 @@ function Grid({ coin }) {
 				</div>
 				{coin.price_change_percentage_24h > 0 ? (
 					<div className='info-flex-wishList-icon'>
-						<button onClick={()=>handelWishlist(coin)}>
+						<div onClick={(e) => {
+									if (isCoinAdded) {
+										//remove coin
+
+										removeItemToWatchlist(e, coin.id,setIsCoinAdded);
+									} else {
+										setIsCoinAdded(e, coin.id);
+										saveItemToWatchlist(e, coin.id);
+									}
+								}}>
 							<StarBorderRoundedIcon />
-						</button>
+						</div>
 					</div>
 				) : (
 					<div className='info-flex-wishList-icon-red'>
-						<button onClick={()=>handelWishlist(coin)}>
+								<div onClick={(e) => {
+									if (isCoinAdded) {
+										//remove coin
+
+										removeItemToWatchlist(e, coin.id);
+									} else {
+										setIsCoinAdded(e, coin.id);
+										saveItemToWatchlist(e, coin.id);
+									}
+								}}>
 							<StarBorderRoundedIcon />
-						</button>
+						</div>
 					</div>
 				)}
 			</div>
@@ -76,6 +98,7 @@ function Grid({ coin }) {
 				</p>
 			</div>
 		</div>
+	</a>
 	);
 }
 

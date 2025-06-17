@@ -8,7 +8,6 @@ const SelectCoins = ({
 	setCrypto1,
 	crypto2,
 	setCrypto2,
-	handelCoinChange,
 }) => {
 	const [allCoins, setAllCoins] = useState([]);
 	const styles = {
@@ -27,26 +26,35 @@ const SelectCoins = ({
 		},
 	};
 
-	// const handelCoinChange = (event, isCoin2) => {
-	// 	if (isCoin2) {
-	// 		setCrypto2(event.target.value);
-	// 		console.log("crypto 2",event.target.value);
+	 const handelCoinChange = (event, isCoin2) => {
+		console.log(event.target.value,isCoin2,"hello");
+		
+		 if (!isCoin2) {
+			 setCrypto1(event.target.value);
+		 } else {
+			 setCrypto2(event.target.value);
+		 }
+		 
+		 
+	 	// if(isCoin2) {
+	 	// 	setCrypto2(event.target.value);
+	 	// 	console.log("crypto 2",event.target.value);
+		// }else {
+		// 	setCrypto1(event.target.value);
+		// 	console.log("crypto 1",event.target.value);
+		// }
+	};
 
-	// 	} else {
-	// 		setCrypto1(event.target.value);
-	// 		console.log("crypto 1",event.target.value);
-	// 	}
-	// };
-
-	useEffect(() => {
-		getData();
-	}, []);
 
 	const getData = async () => {
 		const myData = await get100Coins();
 		setAllCoins(myData);
 	};
-	console.log(allCoins);
+
+	useEffect(() => {
+		getData();
+	}, []);
+
 
 	return (
 		<div className='coin-flex'>

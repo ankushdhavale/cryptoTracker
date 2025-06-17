@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 import WishListContext from "../../../context/WishListContext";
 
 const List = ({ coin }) => {
-	const { handelWishlist } = useContext(WishListContext);
+	console.log("List",coin);
 	return (
 		<tr className='list-row'>
 			<Tooltip title='Coin Logo' placement='bottom-end'>
@@ -81,15 +81,15 @@ const List = ({ coin }) => {
 					</p>
 				</td>
 			</Tooltip>
-			{coin.price_change_percentage_24h > 0 ? (
+			{coin?.price_change_percentage_24h > 0 ? (
 					<div className='info-flex-wishList-icon'>
-							<button onClick={()=>handelWishlist(coin)}>
+							<button>
 								<StarBorderRoundedIcon />
 							</button>
 					</div>
 				) : (
 					<div className='info-flex-wishList-icon-red'>
-							<button onClick={()=>handelWishlist(coin)}>
+							<button>
 								<StarBorderRoundedIcon />
 							</button>
 					</div>

@@ -39,9 +39,11 @@ const CoinPage = () => {
 		}
 	}
 
-	const handleDaysChange = async (event) => {
+	const handelDaysChange = async (event) => {
 		setIsLoading(true);
 		setDays(event.target.value);
+		console.log(event.target.value);
+		
 		const prices = await getCoinPrices(coinId, event.target.value, priceType);
 		if (prices?.length > 0) {
 			settingChartData(setChartData, prices);
@@ -72,7 +74,7 @@ const CoinPage = () => {
 						<List coin={coinData} />
 					</div>   
 					<div className='grey-wrapper'>
-						<SelectDays days={days} handleDaysChange={handleDaysChange} />
+						<SelectDays days={days} handelDaysChange={handelDaysChange} />
 						<TogglePriceType
 							priceType={priceType}
 							handlePriceTypeChange={handlePriceTypeChange}

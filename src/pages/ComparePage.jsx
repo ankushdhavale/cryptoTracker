@@ -146,6 +146,8 @@ const ComparePage = () => {
 						<SelectCoins
 							crypto1={crypto1}
 							crypto2={crypto2}
+							setCrypto1={setCrypto1}
+							setCrypto2={setCrypto2}
 							handelCoinChange={handleCoinChange}
 						/>
 						<SelectDays

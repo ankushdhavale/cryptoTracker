@@ -4,14 +4,14 @@ import DashboardPage from "./pages/DashboardPage";
 import Header from "./components/Common/Header/Header";
 import CoinPage from "./pages/CoinPage";
 import ComparePage from "./pages/ComparePage";
-import { WishListContextProvider } from "./context/WishListContext";
 import WishListPage from "./pages/WishListPage";
+import { ToastContainer } from "react-toastify";
 
 function App() {
 	return (
 		<div className='App'>
+		<ToastContainer />
 			<BrowserRouter>
-				<WishListContextProvider>
 					<Header />
 					<Routes>
 						<Route path='/' element={<HomePage />} />
@@ -20,7 +20,6 @@ function App() {
 						<Route path='/compare' element={<ComparePage />} />
 						<Route path='/wishlist' element={<WishListPage />} />
 					</Routes>
-				</WishListContextProvider>
 			</BrowserRouter>
 		</div>
 	);
