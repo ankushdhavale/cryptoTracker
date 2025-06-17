@@ -32,7 +32,6 @@ const DashboardPage = () => {
 			coin.symbol.toLowerCase().includes(search.toLowerCase())
 	);
 
-	console.log(search);
 
 	useEffect(() => {
 		getData();
@@ -50,7 +49,6 @@ const DashboardPage = () => {
 	const handelBtn = () => {
 		setSearch("");
 	}
-	console.log("length",filteredCoins.length);
 	
 	return (
 		<>

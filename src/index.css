@@ -95,7 +95,7 @@ img {
 		gap: 0rem;
 	}
 	.grey-wrapper{
-		display: none;
+		/* display: none; */
 	}
 	.data-not-found>p{
 		text-align: center;

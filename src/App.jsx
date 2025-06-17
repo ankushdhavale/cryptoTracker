@@ -4,7 +4,7 @@ import DashboardPage from "./pages/DashboardPage";
 import Header from "./components/Common/Header/Header";
 import CoinPage from "./pages/CoinPage";
 import ComparePage from "./pages/ComparePage";
-import WishListPage from "./pages/WishListPage";
+import WishListPage from "./pages/WatchlistPage";
 import { ToastContainer } from "react-toastify";
 
 function App() {

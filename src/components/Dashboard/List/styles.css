@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	gap: 0.5rem;
+	gap: 1rem;
 	margin: 1.5rem;
 	padding: 1rem;
 	border-radius: 1rem;
@@ -35,11 +35,14 @@
     display: none;
 }
 
-.info-flex-wishList-icon button{
+.info-flex-wishList-icon{
 	cursor: pointer;
+	width: 20px;
+	height: 20px;
+	padding: 5px;
 }
 
-.info-flex-wishList-icon-red button{
+.info-flex-wishList-icon-red{
 	cursor: pointer;
 }
 
@@ -62,6 +65,10 @@
     .mobile-td-mkt{
         display: block;
     }
+	.price-chip{
+		border-radius: 50%;
+		border: 1px solid ;
+	}
 }
 
 @media only screen and (max-width: 800px) {

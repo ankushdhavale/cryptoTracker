@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import WishListContext from "../context/WishListContext";
 import { NavLink } from "react-router-dom";
 import Tabs from "../components/Dashboard/Tabs/Tabs";
 import Button from "../components/Common/Button/Button";

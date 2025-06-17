@@ -1,14 +1,20 @@
-import React, { useContext } from "react";
-import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
+import React, { useContext, useState } from "react";
+import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import Tooltip from "@mui/material/Tooltip";
 import "./styles.css";
 import { convertNumbers } from "../../../functions/convertNumbers";
 import { NavLink } from "react-router-dom";
-import WishListContext from "../../../context/WishListContext";
+import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
+import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
+import StarIcon from "@mui/icons-material/Star";
+import StarOutlineIcon from "@mui/icons-material/StarOutline";
 
 const List = ({ coin }) => {
-	console.log("List",coin);
+	const watchlist = JSON.parse(localStorage.getItem("watchlist"));
+	const [isCoinAdded, setIsCoinAdded] = useState(watchlist?.includes(coin.id));
+		console.log(isCoinAdded);
+	
 	return (
 		<tr className='list-row'>
 			<Tooltip title='Coin Logo' placement='bottom-end'>
@@ -20,7 +26,9 @@ const List = ({ coin }) => {
 				<td>
 					<div className='name-col name-col-res'>
 						<p className='coin-symbol coin-symbol-res'>{coin?.symbol}</p>
-						<p className='coin-name coin-name-res'>{coin?.name?.slice(1, 17)}</p>
+						<p className='coin-name coin-name-res'>
+							{coin?.name?.slice(1, 17)}
+						</p>
 					</div>
 				</td>
 			</Tooltip>
@@ -51,7 +59,7 @@ const List = ({ coin }) => {
 						className='coin-price td-center-right coin-price-res'
 						style={{
 							color:
-							coin?.price_change_percentage_24h > 0
+								coin?.price_change_percentage_24h > 0
 									? "var(--green)"
 									: "var(--red)",
 						}}
@@ -61,7 +69,7 @@ const List = ({ coin }) => {
 				</td>
 			</Tooltip>
 			<Tooltip title='Total Volume' placement='bottom-end'>
-				<td className="total-volume-res">
+				<td className='total-volume-res'>
 					<p className='total-volume td-align-right'>
 						{coin?.total_volume?.toLocaleString()}
 					</p>
@@ -81,19 +89,22 @@ const List = ({ coin }) => {
 					</p>
 				</td>
 			</Tooltip>
-			{coin?.price_change_percentage_24h > 0 ? (
-					<div className='info-flex-wishList-icon'>
-							<button>
-								<StarBorderRoundedIcon />
-							</button>
-					</div>
-				) : (
-					<div className='info-flex-wishList-icon-red'>
-							<button>
-								<StarBorderRoundedIcon />
-							</button>
-					</div>
-				)}
+			<div
+				className={`info-flex-wishList-icon ${
+					coin?.price_change_percentage_24h < 0 && "info-flex-wishList-icon-red"
+					}`}
+				onClick={(e) => {
+					if (isCoinAdded) {
+						//remove watchlist
+						removeItemToWatchlist(e, coin.id, setIsCoinAdded);
+					} else {
+						setIsCoinAdded(true);
+						saveItemToWatchlist(e, coin.id);
+					}
+				}}
+			>
+					{isCoinAdded ? <StarIcon /> : <StarOutlineIcon />}
+			</div>
 		</tr>
 	);
 };

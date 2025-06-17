@@ -6,3 +6,30 @@
     margin: 0rem 1rem;
 }
 
+.coin-flex-select-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.coin-flex-select-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media only screen and (max-width:800px){
+    .coin-flex-select-1 {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .coin-flex-select-2{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
+}

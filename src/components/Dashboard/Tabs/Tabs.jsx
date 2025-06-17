@@ -48,7 +48,7 @@ export default function Tabs({ coins }) {
 					</div>
 				</TabPanel>
 				<TabPanel value='List'>
-				<div className='list-table'>
+				<div className='list-flex'>
 						{coins?.map((coin, i) => {
 							return <Link to={`/coin/${coin.id}`} key={i}><List coin={coin} key={i} /></Link>;
 						})}
