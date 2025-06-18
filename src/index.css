@@ -20,7 +20,6 @@ body {
 	overflow-x: hidden;
 	background-color: var(--black);
 	color: var(--white);
-	height: 150vh;
 	font-family: "Inter", "sans-serif";
 }
 

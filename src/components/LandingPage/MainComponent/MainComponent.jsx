@@ -1,4 +1,5 @@
 import React from "react";
+import { RWebShare } from "react-web-share";
 import Button from "../../Common/Button/Button";
 import iphone from "../../../assets/iphone.png";
 import gradient from "../../../assets/gradient.png";
@@ -41,8 +42,19 @@ const MainComponent = () => {
 					animate={{ opacity: 1, x: 0 }}
 					transition={{ duration: 0.5, delay: 1.5 }}
 				>
-					<Link to="/dashboard"><Button text={"Dashboards "} /></Link>
-					<Button text={"Share "} outlined={true} />
+					<Link to='/dashboard'>
+						<Button text={"Dashboards "} />
+					</Link>
+					<RWebShare
+						data={{
+							text: "CryptoTracker made by Ankush Dhavale using React JS.",
+							url: "https://cryptotrackerwebapplication.netlify.app",
+							title: "CryptoTracker",
+						}}
+						onClick={() => toast.info("App Shared!")}
+					>
+						<Button text={"Share App"} outlined={true} />
+					</RWebShare>
 				</motion.div>
 			</div>
 			<motion.div className='phone-container'>
